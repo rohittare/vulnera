@@ -4,12 +4,13 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 import { IoMenu } from "react-icons/io5";
 const navLinks = [
-    { href: "/user/upload", label: "Upload" },
-    { href: "/user/waiting-list", label: "Waitlist" },
-    { href: "/user/submission", label: "Submissions" },
-    { href: "/user/NFTs", label: "NFTs" },
+    { href: "/home", label: "home" },
+    { href: "/dashboard", label: "Dashboard" },
+    { href: "/bounties", label: "Bounties" },
+    { href: "/sponsors", label: "Be Our Sponsors" },
 ]
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -21,17 +22,16 @@ const Navbar = () => {
     return (
         <nav className="relative top-6 bg-[#000000] z-50 w-full  backdrop-blur ">
             <div className="container mx-auto px-4">
-
-                <div className="flex h-16 items-center gap-96 justify-around">
+                <div className="flex h-16 items-center justify-around">
                     {/* Logo and Brand */}
-                    <div className="flex items-center gap-3">
-                        <Link
-                            href="/submission"
-                            className="text-3xl font-[Leckerli One] font-bold text-[#9438FF]"
-                        >
-                            Vulnera
-                        </Link>
-                    </div>
+                        <Image
+                            src="/navlogo.png"
+                            alt="Vulnera Logo"
+                            width={150}
+                            height={40}
+                            priority
+                            className="object-contain"
+                        />
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
@@ -47,12 +47,13 @@ const Navbar = () => {
                                 </Link>
                             ))}
                         </div>
-
                     </div>
+
                     <div className="flex items-center gap-4">
                         <IoMenu className="text-white h-8 w-8" />
                         <CgProfile className="text-white h-8 w-8" />
                     </div>
+
                 </div>
 
                 {/* Mobile Navigation Menu */}

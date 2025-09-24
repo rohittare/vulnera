@@ -8,17 +8,17 @@ import { Home, LayoutDashboard, NotebookPen, Handshake } from 'lucide-react';
 import Image from 'next/image';
 
 const userNavItems = [
-  { name: 'Home', href: '/user', icon: Home },
-  { name: 'Dashboard', href: '/user/dashboard', icon: LayoutDashboard },
-  { name: 'Bounties', href: '/user/bounties', icon: NotebookPen },
-  { name: 'Be Our Sponsors', href: '/user/sponsors', icon: Handshake },
+  { name: 'Home', href: '/home', icon: Home },
+  { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
+  { name: 'Bounties', href: '/bounties', icon: NotebookPen },
+  { name: 'Be Our Sponsors', href: '/sponsors', icon: Handshake },
 ];
 
 const companyNavItems = [
-  { name: 'Home', href: '/company', icon: Home },
+  { name: 'Home', href: '/home', icon: Home },
   { name: 'Dashboard', href: '/company/dashboard', icon: LayoutDashboard },
-  { name: 'Bounties', href: '/company/bounties', icon: NotebookPen },
-  { name: 'Be Our Sponsors', href: '/company/sponsors', icon: Handshake },
+  { name: 'Bounties', href: '/bounties', icon: NotebookPen },
+  { name: 'Be Our Sponsors', href: '/sponsors', icon: Handshake },
 ];
 
 export function Sidebar() {

@@ -1,4 +1,4 @@
-import Navbar from "../../Navbar"
+import Navbar from "../Navbar"
 import { ShieldCheckIcon } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { FaYoutube, FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
