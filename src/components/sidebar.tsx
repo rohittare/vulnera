@@ -11,14 +11,14 @@ const userNavItems = [
   { name: 'Home', href: '/home', icon: Home },
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Bounties', href: '/bounties', icon: NotebookPen },
-  { name: 'Be Our Sponsors', href: '/sponsors', icon: Handshake },
+  // { name: 'Be Our Sponsors', href: '/dashboard/sponsors', icon: Handshake },
 ];
 
 const companyNavItems = [
   { name: 'Home', href: '/home', icon: Home },
   { name: 'Dashboard', href: '/company/dashboard', icon: LayoutDashboard },
   { name: 'Bounties', href: '/bounties', icon: NotebookPen },
-  { name: 'Be Our Sponsors', href: '/sponsors', icon: Handshake },
+  // { name: 'Be Our Sponsors', href: '/dashboard/sponsors', icon: Handshake },
 ];
 
 export function Sidebar() {
@@ -64,7 +64,7 @@ export function Sidebar() {
                   <span
                     className={cn(
                       'font-medium',
-                      
+                      // Keep text color black/foreground when active, and gray otherwise
                       isActive ? 'text-foreground' : 'text-muted-foreground'
                     )}
                   >

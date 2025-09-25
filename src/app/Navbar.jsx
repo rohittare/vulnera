@@ -10,7 +10,7 @@ const navLinks = [
     { href: "/home", label: "home" },
     { href: "/dashboard", label: "Dashboard" },
     { href: "/bounties", label: "Bounties" },
-    { href: "/sponsors", label: "Be Our Sponsors" },
+    // { href: "/sponsors", label: "Be Our Sponsors" },
 ]
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
