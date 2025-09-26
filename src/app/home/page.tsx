@@ -3,6 +3,8 @@ import { ShieldCheckIcon } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { FaYoutube, FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { Button } from "@/components/ui/button"
+import Spline from '@splinetool/react-spline/next';
+import Image from "next/image"
 export default function Home() {
     return (
         <>
@@ -28,10 +30,9 @@ export default function Home() {
                             Join us as Company/User
                         </button>
                     </div>
-                    <div className="w-2/3">
-                        <img
-                            src="/5da65ab32dcd4d7a23daf2db0c55a0d2c24464f3.jpg" // Replace with your actual image name
-                            alt="Logo"
+                    <div className="w-full">
+                        <Spline
+                            scene="https://prod.spline.design/YGyx1gMMrzrMnqmn/scene.splinecode"
                         />
                     </div>
                     <div>
@@ -61,10 +62,10 @@ export default function Home() {
                                     </div>
                                     <h3 className="text-xl font-bold">Transparency</h3>
                                 </div>
-                                <p className="text-gray-400">
+                                <p className="text-gray-400 h-50">
                                     All bounty submissions and reviews are recorded on the blockchain, creating a a secure, transparent, and
                                     tamper-proof history. This ensures every contribution is verifiable, decisions are traceable, and the
-                                    process remains open and accountable.
+                                    process remains open and accountable .
                                 </p>
                             </div>
                             <div className="grid gap-1 p-6 border border-gray-700 rounded-lg bg-gray-900">
@@ -74,10 +75,10 @@ export default function Home() {
                                     </div>
                                     <h3 className="text-xl font-bold">Smart Contracts</h3>
                                 </div>
-                                <p className="text-gray-400">
+                                <p className="text-gray-400 h-50">
                                     Payments are automated via smart contracts, removing intermediaries and minimizing delays or disputes.
                                     Researchers are rewarded instantly and fairly upon successful review, enabling a more efficient and
-                                    trustworthy incentive system.
+                                    trustworthy incentive system .
                                 </p>
                             </div>
                             <div className="grid gap-1 p-6 border border-gray-700 rounded-lg bg-gray-900">
@@ -87,7 +88,7 @@ export default function Home() {
                                     </div>
                                     <h3 className="text-xl font-bold">Fair Review</h3>
                                 </div>
-                                <p className="text-gray-400">
+                                <p className="text-gray-400 h-50">
                                     Our decentralized review process guarantees transparency, fairness, and accuracy in evaluating bug
                                     submissions, ensuring that every researcher's work is recognized and rewarded appropriately.
                                 </p>
@@ -155,26 +156,25 @@ export default function Home() {
                             Register Now
                         </button>
                     </div>
+                    <img
+                        src="\Screenshot 2025-09-25 025851.png" // Replace with your actual image name
+                        alt="Background"
+                        className=" relative  w-screen  "
 
-                    <div className="absolute ">
-                        <img
-                            src="\Screenshot 2025-09-25 025851.png" // Replace with your actual image name
-                            alt="Background"
-                            className=" relative bottom-[120px] w-screen  "
-
-                        />
-                    </div>
+                    />
                 </section>
-
-
-
-                <div className=" relative top-[200px] z-10 flex items-center justify-between px-40 w-full ">
+                
+                <div className="bg-white flex items-center justify-between px-40 w-full ">
                     <div className="flex flex-col items-center justify-center gap-4">
-                        <div
-                            className="text-6xl font-[Leckerli One] font-bold text-[#9438FF]"
-                        >
-                            Vulnera
-                        </div>
+                        <Image
+                            src="/navlogo.png"
+                            alt="Vulnera Logo"
+                            width={200}
+                            height={40}
+                            priority
+                            className="object-contain"
+                        />
+
                         <p className="text-2xl">You Hunt. We Pay. Simple</p>
                         <div className="flex justify-center mb-8">
                             <input
@@ -186,16 +186,16 @@ export default function Home() {
                     </div>
                     <div className="flex justify-center items-center gap-6 text-gray-600">
                         <a href="#" className="hover:text-purple-500 ">
-                            <FaYoutube  className="text-6xl "/>
+                            <FaYoutube className="text-3xl " />
                         </a>
                         <a href="#" className="hover:text-purple-500">
-                            <FaFacebookF className="text-6xl" />
+                            <FaFacebookF className="text-3xl" />
                         </a>
                         <a href="#" className="hover:text-purple-500">
-                            <FaLinkedinIn className="text-6xl" />
+                            <FaLinkedinIn className="text-3xl" />
                         </a>
                         <a href="#" className="hover:text-purple-500">
-                            <FaTwitter className="text-6xl" />
+                            <FaTwitter className="text-3xl" />
                         </a>
                     </div>
                 </div>
