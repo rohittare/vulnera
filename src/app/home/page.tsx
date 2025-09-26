@@ -1,11 +1,64 @@
+'use client'
+
 import Navbar from "../Navbar"
 import { ShieldCheckIcon } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { FaYoutube, FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import Spline from '@splinetool/react-spline/next';
 import Image from "next/image"
+import { useEffect, useRef, useState } from "react"
 export default function Home() {
+    const steps = [
+        {
+            title: "Companies register",
+            description:
+                "Companies register and deposit funds into a secure smart contract to fund their bounty programs.",
+        },
+        {
+            title: "Users Submit",
+            description: "All submissions and reviews are recorded on-chain for a transparent, tamper-proof history.",
+        },
+        {
+            title: "Review & Verify",
+            description: "Contributions are reviewed, verified, and decisions are traceable end-to-end.",
+        },
+        {
+            title: "Rewards Released",
+            description: "Once approved, rewards are released automatically and remain auditable.",
+        },
+    ]
+
+    const ref = useRef<HTMLDivElement | null>(null)
+    const [visible, setVisible] = useState(false)
+
+    useEffect(() => {
+        const el = ref.current
+        if (!el) return
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                        setVisible(true)
+                        observer.unobserve(entry.target)
+                    }
+                }
+            },
+            {
+                // reveal as the card is ~20% in view
+                threshold: 0.2,
+                rootMargin: "0px 0px -5% 0px",
+            },
+        )
+
+        observer.observe(el)
+        return () => observer.disconnect()
+    }, [])
+
+
+
     return (
         <>
             <div className="min-h-screen bg-[#000000]">
@@ -30,10 +83,11 @@ export default function Home() {
                             Join us as Company/User
                         </button>
                     </div>
+                    <Spline
+                        scene="https://prod.spline.design/YGyx1gMMrzrMnqmn/scene.splinecode"
+                    />
                     <div className="w-full">
-                        <Spline
-                            scene="https://prod.spline.design/YGyx1gMMrzrMnqmn/scene.splinecode"
-                        />
+
                     </div>
                     <div>
 
@@ -98,7 +152,7 @@ export default function Home() {
                 </section>
 
 
-                <section className="w-full py-12 md:py-24 lg:py-32 px-20 text-foreground">
+                {/* <section className="w-full py-12 md:py-24 lg:py-32 px-20 text-foreground">
                     <div className="container grid gap-8 px-4 md:px-6">
                         <div className="grid grid-cols-5  gap-8">
                             <Card className="bg-white col-span-2 text-black p-6 rounded-lg shadow-lg flex flex-col items-center justify-center">
@@ -142,6 +196,78 @@ export default function Home() {
                             </Card>
                         </div>
                     </div>
+                </section> */}
+
+
+                <section className="w-full">
+                    <header className="text-center max-w-2xl mx-auto">
+                        <h2 className="text-white text-3xl md:text-4xl font-semibold">How it Works</h2>
+                        <p className="text-pretty mt-2 text-[var(--color-muted-foreground)]">A transparent and fair process for all</p>
+                    </header>
+
+                    <div className="relative mt-12">
+                        {/* Vertical timeline line */}
+                        <div
+                            aria-hidden="true"
+                            className="pointer-events-none  absolute left-1/2 top-0 bottom-0 -translate-x-1/2 border-l border-dashed border-[var(--color-border)]"
+                        />
+
+                        <ol className="relative space-y-10">
+                            {steps.map((step, i) => {
+                                const isLeft = i % 2 === 0
+                                return (
+                                    <li key={i} className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
+                                        {/* Marker */}
+                                        <div aria-hidden="true" className="absolute left-1/2 -translate-x-1/2 z-10">
+                                            <div className="h-9 w-9 rounded-full text-white bg-[#9438FF] transition-shadow duration-300 hover:shadow-[0_0_36px_#9438FF] grid place-items-center text-sm font-semibold">
+                                                {i + 1}
+                                            </div>
+                                        </div>
+
+                                        {/* Left cell */}
+                                        <div
+                                            className={cn(
+                                                // show this cell on mobile only if it's the one holding content
+                                                isLeft ? "flex md:justify-end" : "hidden md:flex md:justify-end",
+                                            )}
+                                        >
+                                            {isLeft && (
+                                                <div
+                                                    className={cn(
+                                                        "w-full md:max-w-[520px] rounded-[var(--radius-lg)] border border-[#9438FF] bg-[var(--color-card)] p-4 md:p-5 shadow-sm",
+                                                        "md:mr-16", // space from center line
+                                                    )}
+                                                >
+                                                    <h3 className=" font-semibold">{`${i + 1}. ${step.title}`}</h3>
+                                                    <p className="mt-2 text-sm leading-6 text-[var(--color-muted-foreground)]">{step.description}</p>
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        {/* Right cell */}
+                                        <div
+                                            className={cn(
+                                                // show this cell on mobile only if it holds content
+                                                !isLeft ? "flex md:justify-start" : "hidden md:flex md:justify-start",
+                                            )}
+                                        >
+                                            {!isLeft && (
+                                                <div
+                                                    className={cn(
+                                                        "w-full md:max-w-[520px] rounded-[var(--radius-lg)] border border-[#9438FF] bg-[var(--color-card)] p-4 md:p-5 shadow-sm",
+                                                        "md:ml-16", // space from center line
+                                                    )}
+                                                >
+                                                    <h3 className=" font-semibold">{`${i + 1}. ${step.title}`}</h3>
+                                                    <p className="mt-2 text-sm leading-6 text-[var(--color-muted-foreground)]">{step.description}</p>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </li>
+                                )
+                            })}
+                        </ol>
+                    </div>
                 </section>
 
 
@@ -163,7 +289,7 @@ export default function Home() {
 
                     />
                 </section>
-                
+
                 <div className="bg-white flex items-center justify-between px-40 w-full ">
                     <div className="flex flex-col items-center justify-center gap-4">
                         <Image
@@ -180,7 +306,7 @@ export default function Home() {
                             <input
                                 type="text"
                                 placeholder="Search..."
-                                className="w-72 px-4 py-2 border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-400"
+                                className="w-72 px-4 py-2 border bg-gray-200 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-400"
                             />
                         </div>
                     </div>
