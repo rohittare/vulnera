@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Navbar from "../Navbar"
 import { ShieldCheckIcon } from "lucide-react"
@@ -83,15 +83,13 @@ export default function Home() {
                             Join us as Company/User
                         </button>
                     </div>
-                    <Spline
-                        scene="https://prod.spline.design/YGyx1gMMrzrMnqmn/scene.splinecode"
+                    <Image
+                        src="/5da65ab32dcd4d7a23daf2db0c55a0d2c24464f3.jpg"
+                        alt="3D Spline"
+                        width={1300}
+                        height={5}
+                        className="mx-auto"
                     />
-                    <div className="w-full">
-
-                    </div>
-                    <div>
-
-                    </div>
                 </div>
 
 
